@@ -25,3 +25,9 @@ spec:
             - name: postgres-storage # from volumes entry
               mountPath: /var/lib/postgresql/data # create directory for storage
               subPath: postgres # you need this just with Postgres!!!
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyReference:
+                  name: pgpassword1
+                  key: PGPASSWORD
